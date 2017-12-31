@@ -17,7 +17,6 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-require_once(__DIR__ . DIRECTORY_SEPARATOR . "mii-config.php");
 require_once(__DIR__ . DIRECTORY_SEPARATOR . "../vendor/autoload.php");
 
 class Core {
@@ -52,8 +51,8 @@ class Core {
         curl_setopt_array($ch, array(
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_HTTPHEADER => array(
-                "X-Nintendo-Client-ID: " . $this->clientId,
-                "X-Nintendo-Client-Secret: " . $this->clientSecret
+                "X-Nintendo-Client-ID: " . getenv("CLIENT_ID"),
+                "X-Nintendo-Client-Secret: " . getenv("CLIENT_SECRET")
             )
         ));
 

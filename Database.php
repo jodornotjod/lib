@@ -17,8 +17,6 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-require_once(__DIR__ . DIRECTORY_SEPARATOR . "database-config.php");
-
 error_reporting(E_ALL & ~E_NOTICE & ~E_STRICT);
 global $mysqli;
 
@@ -35,7 +33,7 @@ class Database {
 		global $mysqli;
 
 		if (!$mysqli)
-			$this->mysqli = new mysqli($this->sqliHost, $this->sqliUser, $this->sqliPassword, $this->sqliDatabase);
+			$this->mysqli = new mysqli(getenv("SQLI_HOST"), getenv("SQLI_USER"), getenv("SQLI_PASSWORD"), getenv("SQLI_DATABASE"));
 
 		if ($this->mysqli->connect_error) {
 			return false;
