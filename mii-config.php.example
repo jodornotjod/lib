@@ -1,0 +1,4 @@
+<?php
+// Configuration for Mii Image grabbing
+$clientId = "<X-Nintendo-Client-ID>";
+$clientSecret = "<X-Nintendo-Client-Secret>";

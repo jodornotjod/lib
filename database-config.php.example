@@ -1,0 +1,6 @@
+<?php
+// Configuration for SQL database
+$sqliHost = "<SQLHost>";
+$sqliUser = "<SQLUser>";
+$sqliPassword = "<SQLPassword>";
+$sqliDatabase = "<SQLDatabase>";
