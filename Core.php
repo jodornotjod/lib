@@ -17,7 +17,7 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-require_once(__DIR__ . DIRECTORY_SEPARATOR . "../mii-config.php");
+require_once(__DIR__ . DIRECTORY_SEPARATOR . "mii-config.php");
 require_once(__DIR__ . DIRECTORY_SEPARATOR . "../vendor/autoload.php");
 
 class Core {

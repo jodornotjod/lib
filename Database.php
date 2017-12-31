@@ -17,7 +17,7 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-require_once(__DIR__ . DIRECTORY_SEPARATOR . "../database-config.php");
+require_once(__DIR__ . DIRECTORY_SEPARATOR . "database-config.php");
 
 error_reporting(E_ALL & ~E_NOTICE & ~E_STRICT);
 global $mysqli;
