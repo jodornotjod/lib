@@ -31,6 +31,20 @@ class Core {
 
         return $randomString;
     }
+    
+    public function generatePostId() {
+        // Prod: 018307; Dev: 018101;
+        $magic_url = pack("C*", 0x01, 0x83, 0x07);
+        $urlenv_url = pack("C*", 0x00, 0x00);
+        $magic2_url = pack("C*", 0x41);
+        $unique_url = openssl_random_pseudo_bytes(10);
+        $b64url_data = str_replace(
+            array("+", "/", "="),
+            array("-", "_", ""),
+            base64_encode($magic_url . $urlenv_url . $magic2_url . $unique_url)
+        );
+        return $b64url_data;
+    }
 
     public function initTwig($dir = __DIR__ . DIRECTORY_SEPARATOR . "../views/") {
         $loader = new Twig_Loader_Filesystem($dir);
