@@ -21,7 +21,7 @@ error_reporting(E_ALL & ~E_NOTICE & ~E_STRICT);
 global $mysqli;
 
 class Database {
-	public function connect() {
+	protected function connect() {
 		global $mysqli;
 
 		if (!$mysqli)
@@ -34,7 +34,7 @@ class Database {
 		return $mysqli;
 	}
 
-	public function disconnect() {
+	protected function disconnect() {
 		if ($this->mysqli) {
 			return $this->mysqli->close();
 		} else {
@@ -42,7 +42,7 @@ class Database {
 		}
 	}
 
-	public function getResult(&$stmt) {
+	protected function getResult(&$stmt) {
 		$result = array();
 		$stmt->store_result();
 
