@@ -18,12 +18,13 @@
  */
 
 error_reporting(E_ALL & ~E_NOTICE & ~E_STRICT);
+global $mysqli;
 
 class Database {
-	public $mysqli;
-
 	public function connect() {
-		if (!$this->mysqli)
+		public global $mysqli;
+
+		if (!$mysqli)
 			$this->mysqli = new mysqli(getenv("SQLI_HOST"), getenv("SQLI_USER"), getenv("SQLI_PASSWORD"), getenv("SQLI_DATABASE"));
 
 		if ($this->mysqli->connect_error) {
