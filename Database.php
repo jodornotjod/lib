@@ -21,15 +21,7 @@ error_reporting(E_ALL & ~E_NOTICE & ~E_STRICT);
 global $mysqli;
 
 class Database {
-	public function __construct() {
-		$this->connect();
-	}
-
-	public function __destruct() {
-		$this->disconnect();
-	}
-
-	private function connect() {
+	public function connect() {
 		global $mysqli;
 
 		if (!$mysqli)
@@ -42,7 +34,7 @@ class Database {
 		return $mysqli;
 	}
 
-	private function disconnect() {
+	public function disconnect() {
 		if ($this->mysqli) {
 			return $this->mysqli->close();
 		} else {
