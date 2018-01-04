@@ -22,7 +22,7 @@ global $mysqli;
 
 class Database {
 	public function connect() {
-		public global $mysqli;
+		global $mysqli;
 
 		if (!$mysqli)
 			$this->mysqli = new mysqli(getenv("SQLI_HOST"), getenv("SQLI_USER"), getenv("SQLI_PASSWORD"), getenv("SQLI_DATABASE"));
