@@ -21,20 +21,20 @@ error_reporting(E_ALL & ~E_NOTICE & ~E_STRICT);
 global $mysqli;
 
 class Database {
-	function connect() {
-		global $mysqli;
+	public function connect() {
+		public global $mysqli;
 
 		if (!$mysqli)
-			$this->mysqli = new mysqli(getenv("SQLI_HOST"), getenv("SQLI_USER"), getenv("SQLI_PASSWORD"), getenv("SQLI_DATABASE"));
+			$mysqli = new mysqli(getenv("SQLI_HOST"), getenv("SQLI_USER"), getenv("SQLI_PASSWORD"), getenv("SQLI_DATABASE"));
 
-		if ($this->mysqli->connect_error) {
+		if ($mysqli->connect_error) {
 			return false;
 		}
 
 		return $mysqli;
 	}
 
-	function disconnect() {
+	public function disconnect() {
 		if ($this->mysqli) {
 			return $this->mysqli->close();
 		} else {
@@ -42,7 +42,7 @@ class Database {
 		}
 	}
 
-	function getResult(&$stmt) {
+	public function getResult(&$stmt) {
 		$result = array();
 		$stmt->store_result();
 
