@@ -46,7 +46,7 @@ class Core {
         return $twigEnv;
     }
 
-    public function getMiiImage($name) {
+    public function getMiiFeelingImage($name, $feeling = "normal_face") {
         $ch = curl_init();
         $api = "https://accountws.nintendo.net/v1/api/";
 
@@ -70,7 +70,7 @@ class Core {
         curl_close($ch);
 
         foreach (json_decode(json_encode($miis), true)["mii"]["images"]["image"] as $a) {
-            if ($a["type"] == "normal_face") {
+            if ($a["type"] == $feeling) {
                 return $a["cached_url"];
             }
         }
