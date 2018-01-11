@@ -20,19 +20,7 @@
 require_once(__DIR__ . DIRECTORY_SEPARATOR . "../vendor/autoload.php");
 
 class Core {
-    public function generateLoginToken($length = 6) {
-        $characters = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-        $charactersLength = strlen($characters);
-        $randomString = "FV"; // Stands for foxverse
-
-        for ($i = 0; $i < $length; $i++) {
-            $randomString .= $characters[rand(0, $charactersLength - 1)];
-        }
-
-        return $randomString;
-    }
-    
-    public function generatePostId() {
+    public function generateContentId() {
         // Prod: 018307; Dev: 018101;
         $magic_url = pack("C*", 0x01, 0x83, 0x07);
         $urlenv_url = pack("C*", 0x00, 0x00);
